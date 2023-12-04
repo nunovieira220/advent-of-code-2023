@@ -15,6 +15,7 @@ if (!["first", "second"].includes(argv[3])) {
 const dayNumber = parseInt(argv[2]);
 const dayTest = argv[3] as "first" | "second";
 const day = days[dayNumber];
-const input = fs.readFileSync(`./day${dayNumber}/input.txt`, 'utf-8');
+const filename = argv[4] || "input.txt";
+const input = fs.readFileSync(`./day${dayNumber}/${filename}`, 'utf-8');
 
 console.log(day[dayTest](input));
