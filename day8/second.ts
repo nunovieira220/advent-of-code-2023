@@ -41,6 +41,10 @@ export default function second(input: string) {
   }
 
   // Calculate number of jumps (assumed by checking results and looping jumps)
+  // Assumed LCM is the way even though the problem doesn't specify in the slightest
+  // that LCM is the algo to go. After some result investigation it was noticeable
+  // that each starting point ended up on the same final point with the same
+  // necessary steps to reach it, so LCM is the way to go here.
   const jumps: Record<number, number> = {};
   let sum = 0;
   let inZ = 0;
