@@ -91,18 +91,18 @@ export default function second(input: string) {
   let farthestPoint: PointWithSteps | null = null;
 
   while (queue.length > 0) {
-      const current = queue.shift()!;
-      farthestPoint = { ...current };
+    const current = queue.shift()!;
+    farthestPoint = { ...current };
 
-      for (let i = 0; i < 4; i++) {
-          const newX = current.x + dx[i];
-          const newY = current.y + dy[i];
+    for (let i = 0; i < 4; i++) {
+      const newX = current.x + dx[i];
+      const newY = current.y + dy[i];
 
-          if (isValidCell(matrix, current, newX, newY, i, visited)) {
-              visited[newX][newY] = true;
-              queue.push({ x: newX, y: newY, steps: current.steps + 1 });
-          }
+      if (isValidCell(matrix, current, newX, newY, i, visited)) {
+        visited[newX][newY] = true;
+        queue.push({ x: newX, y: newY, steps: current.steps + 1 });
       }
+    }
   }
 
   let counter = 0;
